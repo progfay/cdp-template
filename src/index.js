@@ -9,8 +9,12 @@ const main = async () => {
   await client.Log.entryAdded(console.log)
   await client.Log.enable()
   await client.Page.enable()
+
   await client.Page.navigate({ url })
   await client.Page.loadEventFired()
+
+  await client.Log.disable()
+  await client.Page.disable()
   await client.close()
 }
 
